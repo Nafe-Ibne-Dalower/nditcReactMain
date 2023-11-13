@@ -42,7 +42,7 @@ export default function Contact() {
                         <span
                           style={{ fontFamily: "Baloo Da 2", fontSize: "1rem" }}
                         >
-                          Toyenbee Circular Road, Dhaka 1000
+                         &nbsp;Toyenbee Circular Road, Dhaka 1000
                         </span>
                       </div>
                       <div className="email">
@@ -50,7 +50,7 @@ export default function Contact() {
                           style={{ fontFamily: "Baloo Da 2", fontSize: "1rem" }}
                           className="bi bi-envelope-fill"
                         ></span>
-                        <span id="cmii">E-mail: </span>
+                        <span id="cmii">&nbsp;E-mail: </span>
                         <span
                           style={{
                             fontFamily: "Baloo Da 2",
@@ -66,7 +66,7 @@ export default function Contact() {
                           style={{ fontFamily: "Baloo Da 2", fontSize: "1rem" }}
                           className="bi bi-telephone-fill"
                         ></span>
-                        <span id="cmii">Call us: </span>
+                        <span id="cmii">&nbsp;Call us: </span>
                         <span
                           style={{
                             fontFamily: "Baloo Da 2",
@@ -88,14 +88,14 @@ export default function Contact() {
                 <form className="form">
                   <h2
                     style={{
+                      fontFamily: "Baloo Da 2",
                       fontWeight: "800",
                       paddingTop: "25px",
                       paddingBottom: "4px",
-                      fontFamily: "Baloo Da 2",
-                      fontSize: "2rem",
+                      fontSize: "2rem"
                     }}
                   >
-                    Directly message us...
+                  Directly message us...
                   </h2>
 
                   <div className="mycmcont">
