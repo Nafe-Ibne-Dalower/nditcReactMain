@@ -8,23 +8,22 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const fs = require("fs");
-const { url } = require("inspector");
 const path = require("path");
 const mailer = require('nodemailer')
+const cors = require('cors')
+
 // Main
 app.use(bodyParser.urlencoded({ extended: true }));
-const http = require("https");
+app.use(cors({origin: true, credentials: true}));
+app.use(bodyParser.json());
+
 
 // EXPRESS SPECIFIC STUFF
 app.use(express.static(path.join(__dirname, "../public"))); // For serving static files
 
 // Post Request Handler
 app.post("/send-email", (req, res) => {
-  const name = req.body.name;
-  const email = req.body.email;
-  const message = req.body.msgt;
-
+  const { nameOfSender, email, msgt} = req.body;
   // nodemailer transporter
   const trnsp = mailer.createTransport({
     service: "gmail",
@@ -36,19 +35,18 @@ app.post("/send-email", (req, res) => {
   const options = {
     from: "ktprodhan@gmail.com",
     to: "ktprodhan@gmail.com",
-    subject: `Mail from nditc-website ${Date.now}`,
-    text:message,
+    subject: `Mail from nditc-website`,
+    text:`From: ${nameOfSender}\nEmail: ${email}\nText: ${msgt}`,
   };
-
-
+  
+  
   // Send email
   trnsp.sendMail(options, (error, info) => {
-      if (error) {
-          return res.status(500).send(error.toString());
+    if (error) {
+      return res.status(500).send(error.toString());
       }
       res.send('Email sent: ' + info.response);
   });
-  res.status(200).sendFile(path.join(__dirname,'../public/emailResponse.html'));  
 });
 
 const port = 3000;
