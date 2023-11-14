@@ -8,7 +8,7 @@ export default function Contact() {
 
     const sendEmail = async () => {
       alert('Email sent successfully!');
-            await axios.post('http://localhost:3000/send-email', {
+            await axios.post('https://nditcdem.vercel.app/send-email', {
                 nameOfSender,
                 email,
                 msgt,
